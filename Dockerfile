@@ -13,7 +13,7 @@ ENV ARTIFACTORY_HOME ${ARTIFACTORY_HOME:-/var/opt/jfrog/artifactory}
 ENV TOMCAT_HOME ${TOMCAT_HOME:-/opt/jfrog/artifactory/tomcat}
 ENV ARTIFACTORY_INIT ${ARTIFACTORY_INIT:-/opt/jfrog/artifactory/bin/artifactory.sh
 ENV ARTIFACTORY_USER ${ARTIFACTORY_USER:-artifactory}
-ENV ARTIFACTORY_VERSION ${ARTIFACTORY_VERSION:-artifactory-pro-rpms}
+ENV ARTIFACTORY_VERSION ${ARTIFACTORY_VERSION:-'artifactory-pro-rpms'}
 
 # Set standard container operation environment variables
 ENV MAVEN_MYSQL http://repo1.maven.org/maven2/mysql/mysql-connector-java/
@@ -44,7 +44,7 @@ WORKDIR ${ARTIFACTORY_HOME}
 VOLUME ${ARTIFACTORY_HOME}/data ${ARTIFACTORY_HOME}/logs ${ARTIFACTORY_HOME}/backup
 
 RUN curl -sLq https://bintray.com/jfrog/${ARTIFACTORY_VERSION}/rpm -o /etc/yum.repos.d/bintray-jfrog-${ARTIFACTORY_VERSION}.repo
-RUN if [[ $ARTIFACTORY_VERSION =~ /pro/ ]]; then \
+RUN if [[ "$ARTIFACTORY_VERSION" =~ "pro" ]]; then \
     RPM=jfrog-artifactory-pro ; else \
     RPM=jfrog-artifactory-oss ; fi ;\
     yum clean all && \
