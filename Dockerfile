@@ -4,7 +4,9 @@ MAINTAINER Jon Shanks <jon.shanks@gmail.com>
 
 # Define ARGS 1.9+ supported do build and pass arguments at build time
 # http://docs.docker.com/engine/reference/builder
-ARG ARTIFACTORY_VERSION
+#
+# Have to comment this out because Quay isn't using 1.9 yet so Build Args is not supported
+#ARG ARTIFACTORY_VERSION
 
 # Set defaults for environment variables if not overriden also gives visibility on an inspect
 ENV ARTIFACTORY_HOME ${ARTIFACTORY_HOME:-/var/opt/jfrog/artifactory}
