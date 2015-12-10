@@ -1,4 +1,4 @@
-# Docker Java JRE Container
+# Docker Artifactory Container
 
 [![Build Status](https://travis-ci.org/UKHomeOffice/docker-artifactory.svg?branch=master)](https://travis-ci.org/UKHomeOffice/docker-artifactory)
 
@@ -22,40 +22,40 @@ In order to run this container you'll need docker installed.
 
 ### Environment Variables
 
-*`ARTIFACTORY_HOME` - The artifactory home path
-*`TOMCAT_HOME` - The tomcat home path
-*`ARTIFACTORY_INIT` - The artifactory shell script
-*`ARTIFACTORY_USER` - The artifactory user
-*`ARTIFACTORY_VERSION` - The artifactory version, defaults to the build arg
-*`MAVEN_MYSQL` - The maven MYSQL path for the JDBC driver
-*`DEBUG` - This will set the startup script to bash debug mode when you run it to troubleshoot issues
-*`PROXY` - Whether you intend to have a Proxy infront of the service or not, defaults to false
-*`STORAGE_PROPERTIES` - Path to the storage properties file
-*`LICENSE` - The license string for the PRO version to pass in as text
-*`MYSQL` - Whether you are using MYSQL or not defaults to false
-*`MYSQL_CONNECTOR_VERSION` - The MYSQL connector version for the JDBC version defaults to 5.1.37
-*`MYSQL_CONNECTOR_MD5SUM` - The MYSQL connector MD5SUM to validate the right thing is pulled down
-*`MYSQL_OUTPUT_FILE` - The output file location of where to place the JDBC driver connector
-*`MYSQL_USER` - The MYSQL Username
-*`MYSQL_DB` - The MYSQL Database name
-*`MYSQL_PASS` - The MYSQL Password
-*`MYSQL_HOST` - The MYSQL HOSTNAME
-*`MYSQL_PORT` - The MYSQL Port
-*`S3` - Whether you are using S3 to store binaries instead of the filesystem, defaults to false
-*`S3_AWS_ACCESS_KEY` - The S3 Access Key
-*`S3_AWS_SECRET_ACCESS_KEY` - The S3 Secret
-*`S3_AWS_ENDPOINT` - The S3 Endpoint, defaults to eu-west-1
+* `ARTIFACTORY_HOME` - The artifactory home path
+* `TOMCAT_HOME` - The tomcat home path
+* `ARTIFACTORY_INIT` - The artifactory shell script
+* `ARTIFACTORY_USER` - The artifactory user
+* `ARTIFACTORY_VERSION` - The artifactory version, defaults to the build arg
+* `MAVEN_MYSQL` - The maven MYSQL path for the JDBC driver
+* `DEBUG` - This will set the startup script to bash debug mode when you run it to troubleshoot issues
+* `PROXY` - Whether you intend to have a Proxy infront of the service or not, defaults to false
+* `STORAGE_PROPERTIES` - Path to the storage properties file
+* `LICENSE` - The license string for the PRO version to pass in as text
+* `MYSQL` - Whether you are using MYSQL or not defaults to false
+* `MYSQL_CONNECTOR_VERSION` - The MYSQL connector version for the JDBC version defaults to 5.1.37
+* `MYSQL_CONNECTOR_MD5SUM` - The MYSQL connector MD5SUM to validate the right thing is pulled down
+* `MYSQL_OUTPUT_FILE` - The output file location of where to place the JDBC driver connector
+* `MYSQL_USER` - The MYSQL Username
+* `MYSQL_DB` - The MYSQL Database name
+* `MYSQL_PASS` - The MYSQL Password
+* `MYSQL_HOST` - The MYSQL HOSTNAME
+* `MYSQL_PORT` - The MYSQL Port
+* `S3` - Whether you are using S3 to store binaries instead of the filesystem, defaults to false
+* `S3_AWS_ACCESS_KEY` - The S3 Access Key
+* `S3_AWS_SECRET_ACCESS_KEY` - The S3 Secret
+* `S3_AWS_ENDPOINT` - The S3 Endpoint, defaults to eu-west-1
 
 
 ### Ports
 
-*`8081`- This container exposes port 8081
+* `8081`- This container exposes port 8081
 
 
 ## Volumes
-*`${ARTIFACTORY-HOME}/logs` - The logs should be going to stdout / stderr but is a volume
-*`${ARTIFACTORY_HOME/data` - The data directory for where the data lives, this is for the filesystem binaries but negated if using s3
-*`${ARTIFACTORY_HOME/backup` - Used for backups, we can then sync up these to S3 as a scheduled job
+* `${ARTIFACTORY-HOME}/logs` - The logs should be going to stdout / stderr but is a volume
+* `${ARTIFACTORY_HOME/data` - The data directory for where the data lives, this is for the filesystem binaries but negated if using s3
+* `${ARTIFACTORY_HOME/backup` - Used for backups, we can then sync up these to S3 as a scheduled job
 
 ### Usage
 
@@ -65,8 +65,11 @@ To do a standard build for the pro version
 To do a standard build but for the basic version
 ```docker build --build-arg ARTIFACTORY_VERSION=artifactory-rpms -t artifactory:latest .```
 
+To run artifactory with support for varying requirements, specify them as runtime environment variables
+```docker run -e MYSQL=true -e MYSQL_DB=artifactory -e MYSQL_USER=artifactory -e MYSQL_PASS=artifactory -e MYSQL_HOST=1.2.3.4```
+
 # Use this repo
-FROM quay.io/ukhomeofficedigital/artifactory:v0.1.0
+FROM quay.io/ukhomeofficedigital/artifactory:v0.4.0
 
 ## Contributing
 
