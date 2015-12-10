@@ -42,7 +42,7 @@ EOF
 
 # Configure and add the license if there is one
 add_license() {
-  echo "$LICENSE" > ${ARTIFACTORY_HOME}/etc/artifactory.lic
+  echo -e "$LICENSE" > ${ARTIFACTORY_HOME}/etc/artifactory.lic
 }
 
 # Install MYSQL into the tomcat library path for artifactory
