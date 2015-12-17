@@ -38,6 +38,8 @@ ENV S3 false
 ENV S3_AWS_ACCESS_KEY false
 ENV S3_AWS_SECRET_ACCESS_KEY false
 ENV S3_AWS_ENDPOINT  https://s3-eu-west-1.amazonaws.com
+ENV S3_BUCKET_NAME  false
+ENV S3_BUCKET_PATH filestore
 
 WORKDIR ${ARTIFACTORY_HOME}
 

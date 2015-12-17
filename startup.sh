@@ -32,6 +32,8 @@ binary.provider.type=s3
 binary.provider.s3.identity=${S3_AWS_ACCESS_KEY}
 binary.provider.s3.credential=${S3_AWS_SECRET_ACCESS_KEY}
 binary.provider.s3.endpoint=${S3_AWS_ENDPOINT}
+binary.provider.s3.bucket.name=${S3_BUCKET_NAME}
+binary.provider.s3.bucket.path=${S3_BUCKET_PATH}
 EOF
   else
     cat >> ${STORAGE_PROPERTIES} <<-EOF
