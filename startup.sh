@@ -27,7 +27,7 @@ driver=org.apache.derby.jdbc.EmbeddedDriver
 EOF
   fi
 
-  if [[ ${PROVIDER_TYPE,,} == s3 ]]; then
+  if [[ ${S3,,} == true ]]; then
     cat >> ${STORAGE_PROPERTIES} <<-EOF
 binary.provider.type=s3
 binary.provider.s3.identity=${S3_AWS_ACCESS_KEY}
