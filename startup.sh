@@ -11,6 +11,7 @@ fi
 # Configure the storage provider
 config_provider() {
   if [[ ${MYSQL,,} == true ]]; then
+    install_mysql
     cat >> ${STORAGE_PROPERTIES} <<-EOF
 type=mysql
 driver=com.mysql.jdbc.Driver
