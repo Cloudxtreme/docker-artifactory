@@ -61,7 +61,7 @@ set_proto() {
   TOM_ART="${TOMCAT_HOME}/conf/Catalina/localhost/artifactory.xml"
   TOM_SERVER="${TOMCAT_HOME}/conf/server.xml"
   PROXY='<Valve className="org.apache.catalina.valves.RemoteIpValve" protocolHeader="x-forwarded-proto"/>'
-  sed -i  '/Context path/a "$PROXY"' ${TOM_ART}
+  sed -i  "/Context path/a $PROXY" ${TOM_ART}
 
   # set the connectory options in the tomcat server.xml
   CONN='    <Connector port="8081" protocol="HTTP/1.1" \
