@@ -17,7 +17,7 @@ ENV ARTIFACTORY_REPO ${ARTIFACTORY_REPO:-'artifactory-pro-rpms'}
 ENV ARTIFACTORY_VERSION ${ARTIFACTORY_VERSION:-'4.5.0'}
 
 # Set standard container operation environment variables
-ENV MAVEN_MYSQL http://repo1.maven.org/maven2/mysql/mysql-connector-java/
+ENV MAVEN_MYSQL http://repo1.maven.org/maven2/mysql/mysql-connector-java
 ENV DEBUG false
 ENV PROXY false
 ENV STORAGE_PROPERTIES ${ARTIFACTORY_HOME}/etc/storage.properties
