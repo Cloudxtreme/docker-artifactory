@@ -14,7 +14,7 @@ ENV TOMCAT_HOME ${TOMCAT_HOME:-/opt/jfrog/artifactory/tomcat}
 ENV ARTIFACTORY_INIT ${ARTIFACTORY_INIT:-/opt/jfrog/artifactory/bin/artifactory.sh
 ENV ARTIFACTORY_USER ${ARTIFACTORY_USER:-artifactory}
 ENV ARTIFACTORY_REPO ${ARTIFACTORY_REPO:-'artifactory-pro-rpms'}
-ENV ARTIFACTORY_VERSION ${ARTIFACTORY_VERSION:-'4.3.2-40063'}
+ENV ARTIFACTORY_VERSION ${ARTIFACTORY_VERSION:-'4.7.0'}
 
 # Set standard container operation environment variables
 ENV MAVEN_MYSQL http://repo1.maven.org/maven2/mysql/mysql-connector-java
